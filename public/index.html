@@ -87,3 +87,53 @@
     </script>
   </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário Polínico</title>
+    <style>
+        /* Estilos CSS para o calendário */
+        /* ... */
+    </style>
+</head>
+<body>
+    <h1>Calendário Polínico - Belo Horizonte</h1>
+    <div id="calendar"></div>
+
+    <script>
+        // Dados simulados de pólen por mês
+        const pollenData = {
+            "Janeiro": ["Tipo de Pólen A", "Tipo de Pólen B"],
+            "Fevereiro": ["Tipo de Pólen C", "Tipo de Pólen D"],
+            // ... Adicione mais dados para outros meses
+        };
+
+        // Função para gerar e exibir o calendário
+        function generateCalendar() {
+            const calendarDiv = document.getElementById("calendar");
+            
+            for (const month in pollenData) {
+                const monthDiv = document.createElement("div");
+                monthDiv.innerHTML = `<h2>Mês ${month}</h2>`;
+                
+                const pollenTypes = pollenData[month];
+                const pollenList = document.createElement("ul");
+                pollenTypes.forEach(pollenType => {
+                    const pollenItem = document.createElement("li");
+                    pollenItem.textContent = pollenType;
+                    pollenList.appendChild(pollenItem);
+                });
+                
+                monthDiv.appendChild(pollenList);
+                calendarDiv.appendChild(monthDiv);
+            }
+        }
+
+        // Chamar a função para gerar o calendário ao carregar a página
+        window.onload = generateCalendar;
+    </script>
+</body>
+</html>
+
